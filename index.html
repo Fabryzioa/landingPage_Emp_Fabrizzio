@@ -1,97 +1,71 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>coder-app-name</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <title>Joyas Fabrizio | Bijouterie y accesorios en Rosario</title>
+    <meta name="description" content="Joyas Fabrizio: bijouterie, aros, cadenas, dijes, anillos, piercings y accesorios. Venta minorista y mayorista desde Rosario con envíos a todo el país. Más de 15 años de trayectoria." />
+    <meta name="keywords" content="bijouterie Rosario, bijouterie mayorista, bijouterie minorista, aros, cadenas, dijes, anillos, piercings, accesorios, venta mayorista, venta minorista, Rosario, Santa Fe, envíos a todo el país" />
+    <meta name="author" content="Joyas Fabrizio - Familia Vivani" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://joyasfabrizio.com.ar/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://joyasfabrizio.com.ar/" />
+    <meta property="og:title" content="Joyas Fabrizio | Bijouterie y accesorios en Rosario" />
+    <meta property="og:description" content="Más de 15 años de trayectoria en bijouterie y accesorios. Venta minorista y mayorista desde Rosario con envíos a todo el país." />
+    <meta property="og:image" content="https://joyasfabrizio.com.ar/og-image.jpg" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Joyas Fabrizio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Joyas Fabrizio | Bijouterie y accesorios en Rosario" />
+    <meta name="twitter:description" content="Más de 15 años de trayectoria en bijouterie y accesorios. Venta minorista y mayorista desde Rosario con envíos a todo el país." />
+    <meta name="twitter:image" content="https://joyasfabrizio.com.ar/og-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Joyas Fabrizio",
+      "description": "Bijouterie y accesorios. Venta minorista y mayorista desde Rosario con envíos a todo el país.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rosario",
+        "addressRegion": "Santa Fe",
+        "addressCountry": "AR"
+      },
+      "url": "https://joyasfabrizio.com.ar/"
+    }
+    </script>
+
     <style>
-      /* 内联样式确保主题色立即生效，避免闪烁 */
-      html,
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         margin: 0;
         padding: 0;
-        width: 100%;
-        height: 100%;
-      }
-      html.light,
-      html.light body {
-        background-color: #ffffff !important;
-        color: #000000;
-      }
-      html.dark,
-      html.dark body {
-        background-color: #1a1a1a !important;
-        color: #ffffff;
+        font-family: 'Inter', sans-serif;
       }
     </style>
-    <script>
-      // 在 React 加载前立即设置主题，避免闪烁
-      (function () {
-        const isInIframe = window.self !== window.top;
-
-        function applyThemeToDOM(theme) {
-          document.documentElement.classList.remove("light", "dark");
-          document.documentElement.classList.add(theme);
-          document.documentElement.setAttribute("data-theme", theme);
-        }
-
-        if (isInIframe) {
-          // 监听父窗口主动推送的主题消息
-          window.addEventListener("message", function (event) {
-            if (event.data && typeof event.data.theme === "string") {
-              const theme = event.data.theme;
-              if (theme === "light" || theme === "dark") {
-                applyThemeToDOM(theme);
-              }
-            }
-          });
-        } else {
-          // 非 iframe 环境，使用默认 light 主题
-          applyThemeToDOM("light");
-        }
-      })();
-    </script>
-      <script>
-      (function () {
-        if (window.self === window.top) return;
-        var reported = {};
-        window.addEventListener("error", function (event) {
-          // 资源加载失败的 error 事件没有 message，此处仅上报 JS 运行时错误
-          if (!event || !event.message) return;
-          var key =
-            event.message + "|" + (event.filename || "") + "|" + (event.lineno || 0);
-          if (reported[key]) return; // 相同错误只上报一次，避免渲染循环刷屏
-          reported[key] = true;
-          try {
-            window.parent.postMessage(
-              {
-                type: "sandbox-runtime-error",
-                payload: {
-                  message: String(event.message).slice(0, 500),
-                  filename: event.filename || "",
-                  lineno: event.lineno || 0,
-                  colno: event.colno || 0,
-                  stack:
-                    event.error && event.error.stack
-                      ? String(event.error.stack).slice(0, 2000)
-                      : ""
-                }
-              },
-              "*"
-            );
-          } catch (e) {
-            /* 上报失败不影响页面运行 */
-          }
-        });
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
